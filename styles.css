@@ -1,0 +1,44 @@
+.app {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.title {
+    border: 1px solid black;
+    border-radius: 12px;
+    font-size: 1.85rem;
+    margin: 20px auto;
+    padding: .5rem;
+    text-align: center;
+    width: 13rem;
+}
+
+.container {
+    justify-content: center;
+    display: flex;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    width: 90%;
+}
+
+.btn {
+    border: 0;
+    border-radius: 15px;
+    height: 8rem;
+    width: 8rem;
+}
+
+.yellow {
+    background-color: yellow;
+}
+
+.red {
+    background-color: red;
+}
+
+.blue {
+    background-color: blue;
+}
+
+.green {
+    background-color: green;
+}
