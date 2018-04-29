@@ -1,24 +1,25 @@
 .app {
+    background-color: #1E1D1E;
     font-family: 'Montserrat', sans-serif;
+}
+
+.container {
+    align-items: center;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    margin: 0 auto;
 }
 
 .title {
     background-color: white;
     border-radius: 12px;
+    color: #1E1D1E;
     font-size: 1.85rem;
-    margin: 20px auto;
-    padding: .5rem;
+    margin: 20px 0;
+    padding: .5rem .75rem;
     text-align: center;
-}
-
-.container {
-    background-color: #39393A;
-    border-radius: 5px;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0 auto;
-    width: 95%;
 }
 
 .btn-container {
@@ -26,32 +27,62 @@
     justify-content: center;
     display: flex;
     flex-wrap: wrap;
-    width: 100%;
+    margin: 10px 30px;
+    width: 280px;
+}
+
+.display {
+    background-color: white;
+    border-radius: 5px;
+    font-size: 1.5rem;
+    padding: .5rem;
+    margin: 10px ;
+    width: 2rem;
+    text-align: center;
 }
 
 .btn {
     border: 0;
-    height: 7rem;
+    height: 8rem;
     margin: 2px;
-    width: 7rem;
+    width: 8rem;
 }
 
 .yellow {
     background-color: yellow;
     border-radius: 5px;
+    border-top-left-radius: 100%;
 }
 
 .red {
     background-color: red;
     border-radius: 5px;
+    border-top-right-radius: 100%;
 }
 
 .blue {
     background-color: blue;
     border-radius: 5px;
+    border-bottom-left-radius: 100%;
 }
 
 .green {
     background-color: green;
     border-radius: 5px;
+    border-bottom-right-radius: 100%;
+}
+
+.button-container {
+    display: flex;
+    margin-top: 10px;
+}
+
+.button {
+    background-color: #EEE5E9;
+    border-radius: 5px;
+    border: 0;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.5rem;
+    padding: .75rem;
+    margin: .5rem;
 }
