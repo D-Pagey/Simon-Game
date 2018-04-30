@@ -9,6 +9,11 @@ let strict = false;
 /**
  * Methods
  */
+function randomNumber() {
+    
+}
+
+
 function toggleStrict() {
     return strict = (strict ? false : true);
 }

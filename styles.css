@@ -49,9 +49,13 @@
 }
 
 .yellow {
-    background-color: yellow;
+    background-color: #FFFF45;
     border-radius: 5px;
     border-top-left-radius: 100%;
+}
+
+.yellow:hover {
+    background-color: #FFFFBF;
 }
 
 .red {
@@ -60,16 +64,28 @@
     border-top-right-radius: 100%;
 }
 
+.red:hover {
+    background-color: #F47378;
+}
+
 .blue {
     background-color: blue;
     border-radius: 5px;
     border-bottom-left-radius: 100%;
 }
 
+.blue:hover{
+    background-color: #00CCFF;
+}
+
 .green {
     background-color: green;
     border-radius: 5px;
     border-bottom-right-radius: 100%;
+}
+
+.green:hover {
+    background-color: #4CBA44;
 }
 
 .button-container {
