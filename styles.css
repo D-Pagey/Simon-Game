@@ -48,6 +48,10 @@
     width: 8rem;
 }
 
+.btn:focus {
+    outline: 0;
+}
+
 .yellow {
     background-color: #FFFF45;
     border-radius: 5px;
@@ -56,6 +60,12 @@
 
 .yellow:hover {
     background-color: #FFFFBF;
+}
+
+.yellow-active {
+    background-color: #FFFFBF;
+    border-radius: 5px;
+    border-top-left-radius: 100%;
 }
 
 .red {
@@ -68,14 +78,26 @@
     background-color: #F47378;
 }
 
+.red-active {
+    background-color: #F47378;
+    border-radius: 5px;
+    border-top-right-radius: 100%;
+}
+
 .blue {
     background-color: blue;
     border-radius: 5px;
     border-bottom-left-radius: 100%;
 }
 
-.blue:hover{
+.blue:hover {
     background-color: #00CCFF;
+}
+
+.blue-active {
+    background-color: #00CCFF;
+    border-radius: 5px;
+    border-bottom-left-radius: 100%;
 }
 
 .green {
@@ -86,6 +108,12 @@
 
 .green:hover {
     background-color: #4CBA44;
+}
+
+.green-active {
+    background-color: #4CBA44;
+    border-radius: 5px;
+    border-bottom-right-radius: 100%;
 }
 
 .button-container {

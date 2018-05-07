@@ -3,9 +3,11 @@
  */
 const gameBtns = document.querySelectorAll('.btn');
 const opBtns = document.querySelectorAll('.button');
+const display = document.querySelector('.display');
 
 let strict = false;
 let sequence = [];
+let userSequence = [];
 
 /**
  * Methods
@@ -14,19 +16,38 @@ function randomNumber() {
     return Math.floor(Math.random() * Math.floor(4));
 }
 
-function newButton() {
+function newEntry() {
     sequence.push(randomNumber());
+    updateCount();
     return;
-}
-
-function toggleStrict() {
-    return strict = (strict ? false : true);
 }
 
 function startGame() {
-    newButton();
+    newEntry();
     opBtns[0].removeEventListener('click', startGame);
     return;
+}
+
+function activeBtn(element) {
+    console.log(element);
+    element.className = element.id + '-active btn';
+    // element.className = element.id + ' btn';
+}
+
+function runSequence() {
+    sequence.forEach(function(element) {
+        activeBtn(gameBtns[element]);
+    });
+}
+
+// STEP COUNTER
+function updateCount() {
+    display.innerHTML = sequence.length;
+}
+
+// STRICT FUNCTIONS
+function toggleStrict() {
+  return strict = (strict ? false : true);
 }
 
 function enableStrict() {
