@@ -31,7 +31,13 @@ function startGame() {
 function activeBtn(element) {
     console.log(element);
     element.className = element.id + '-active btn';
-    // element.className = element.id + ' btn';
+    setTimeout(function() {
+        element.className = element.id + ' btn';
+    }, 2000);
+}
+
+function start() {
+    setTimeout(runSequence, 3000);
 }
 
 function runSequence() {
