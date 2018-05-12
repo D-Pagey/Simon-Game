@@ -7,7 +7,12 @@ const display = document.querySelector('.display');
 
 let strict = false;
 let sequence = [];
+let processed = [];
 let userSequence = [];
+let intervalId;
+
+// processed
+// set interval processQ if queue length = 0 then cancel interval
 
 /**
  * Methods
@@ -22,28 +27,24 @@ function newEntry() {
     return;
 }
 
+function processTurn() {
+    if (sequence.length === 0 ) {
+        clearInterval(intervalId);
+    } else {
+        let element = gameBtns[sequence[0]];
+        element.className = element.id + '-active btn';
+        setTimeout(function() {
+            element.className = element.id + ' btn';
+        }, 2000);
+        processed.push(sequence.shift());
+    }
+}
+
 function startGame() {
     newEntry();
     opBtns[0].removeEventListener('click', startGame);
+    intervalId = setInterval(processTurn, 2000);
     return;
-}
-
-function activeBtn(element) {
-    console.log(element);
-    element.className = element.id + '-active btn';
-    setTimeout(function() {
-        element.className = element.id + ' btn';
-    }, 2000);
-}
-
-function start() {
-    setTimeout(runSequence, 3000);
-}
-
-function runSequence() {
-    sequence.forEach(function(element) {
-        activeBtn(gameBtns[element]);
-    });
 }
 
 // STEP COUNTER
@@ -73,5 +74,6 @@ function enableStart() {
     opBtns[0].addEventListener('click', startGame);
 }
 
-enableStart();
 opBtns[2].addEventListener('click', enableStrict);
+
+enableStart();
