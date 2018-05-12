@@ -40,11 +40,23 @@ function processTurn() {
     }
 }
 
+function userTurn(e) {
+    userSequence.push(parseInt(e.target.dataset.value));
+}
+
 function startGame() {
-    newEntry();
     opBtns[0].removeEventListener('click', startGame);
     intervalId = setInterval(processTurn, 2000);
     return;
+}
+
+function correct() {
+    processed.forEach(function(element) {
+        sequence.push(element);
+    })
+    processed = [];
+    userSequence = [];
+    newEntry();
 }
 
 // STEP COUNTER
@@ -70,10 +82,13 @@ function enableStrict() {
 /**
  * Event Listeners
  */
-function enableStart() {
-    opBtns[0].addEventListener('click', startGame);
-}
+opBtns[0].addEventListener('click', function() {
+    newEntry();
+    startGame();
+});
+
+gameBtns.forEach(function(element) {
+        element.addEventListener('click', userTurn);
+})
 
 opBtns[2].addEventListener('click', enableStrict);
-
-enableStart();
