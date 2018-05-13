@@ -12,7 +12,7 @@ again.
 - [x] I can see how many steps are in the current series of button presses.
 - [x] If I want to restart, I can hit a button to do so, and the game will 
 return to a single step.
-- [ ] I can play in strict mode where if I get a button press wrong, it 
+- [x] I can play in strict mode where if I get a button press wrong, it 
 notifies me that I have done so, and the game restarts at a new random series 
 of button presses.
 - [x] I can win the game by getting a series of 20 steps correct. I am notified 

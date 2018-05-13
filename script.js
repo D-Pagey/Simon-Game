@@ -73,13 +73,18 @@ function rightOrWrong() {
         console.log('Well done you got it right!');
         correct();
     } else {
-        gameOver('Try again twat');
-        userSequence = [];
-        sequence = processed;
-        processed = [];
-        setTimeout(function() {
-            startGame();
-        }, 2000);
+        if (strict) {
+            gameOver('Strict mode => starting over.');
+            resetGame();
+            newEntry();
+            setTimeout(startGame, 2000);
+        } else {
+            gameOver('Try again twat');
+            userSequence = [];
+            sequence = processed;
+            processed = [];
+            setTimeout(startGame, 2000);
+        }
     }
 }
 
