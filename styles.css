@@ -3,6 +3,83 @@
     font-family: 'Montserrat', sans-serif;
 }
 
+/* Modal */
+.modal-container {
+    display: inline-flex;
+    justify-content: flex-end;
+    width: 100%; }
+  
+  .modal-btn {
+    background-color: transparent;
+    border: none;
+    color: white;
+    margin: 0;
+    opacity: .85; }
+  
+  .sm-12 {
+    background-color: white; }
+  
+  .modal-about {
+    background-color: white;
+    border: 2px solid black;
+    border-radius: 5px;
+    font-size: 13px;
+    margin: 0 auto;
+    max-width: 400px;
+    padding: .5em;
+    top: 22.5px;
+    width: 87.5%;
+ }
+  
+  .modal-cancel {
+    background-color: white;
+    border: none;
+    float: right; }
+  
+  .material-icons.sm-12 {
+    font-size: 20px; }
+  
+  .modal-title {
+    background-color: white;
+    color: royalblue;
+    font-size: 1.1rem;
+    margin: 0;
+    padding: .5em;
+    text-decoration: underline; }
+  
+  .user-stories {
+    background-color: white;
+    font-style: italic;
+    margin: 5px 0;
+    padding: .5em 2em .5em 2.5em; 
+  }
+  
+  .story {
+    margin-top: 1em; 
+  }
+  
+  .story:nth-of-type(1) {
+    margin-top: 0; 
+  }
+
+  .modal-text {
+    background-color: white;
+    margin: .5em; }
+  
+  .copy {
+    background-color: white;
+  }
+  
+  .link {
+    color: royalblue;
+    font-weight: 600;
+    text-decoration: none; }
+  
+  .modal-about::backdrop {
+    background: darkgray;
+    opacity: .85; }
+
+/* Main */
 .container {
     align-items: center;
     border-radius: 5px;

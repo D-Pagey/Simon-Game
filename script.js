@@ -124,8 +124,22 @@ function disableGameBtns() {
 
 opBtns[2].addEventListener('click', enableStrict);
 
+// Modal Functionality
+const modalBtn = document.getElementsByClassName('modal-btn');
+const modal = document.getElementsByClassName('modal-about');
+const button = document.getElementsByClassName('modal-cancel');
+
+modalBtn[0].addEventListener('click', function() {
+  modal[0].showModal();
+});
+
+button[0].addEventListener('click', function() {
+  modal[0].close();
+})
+
 /**
  * If userSequence == processed.length then disable buttons
  * Fix double colour issue
  * Redo button colors
+ * Popup when wrong button press
 */
