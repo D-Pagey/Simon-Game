@@ -215,6 +215,21 @@
     background-color: yellow;
 }
 
+.result-modal {
+    bottom: 550px;
+    border-radius: 36px;
+    position: relative;
+}
+
+.result-modal::backdrop {
+    background: darkgray;
+    opacity: 0.95;
+  }
+
+.result-message {
+
+}
+
 .footer {
     bottom: 0;
     color: white;

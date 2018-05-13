@@ -4,6 +4,8 @@
 const gameBtns = document.querySelectorAll('.btn');
 const opBtns = document.querySelectorAll('.button');
 const display = document.querySelector('.display');
+const result = document.querySelector('.result-modal');
+const resultMsg = document.querySelector('.result-message');
 
 let strict = false;
 let sequence = [];
@@ -61,17 +63,35 @@ function isTurnOver() {
 }
 
 function rightOrWrong() {
-    if (JSON.stringify(userSequence) === JSON.stringify(processed)) {
+    if (JSON.stringify(userSequence) === JSON.stringify(processed) &&
+        processed.length == 20) {
+            gameOver('You Won! lets go again...');
+            resetGame();
+            newEntry();
+            setTimeout(startGame, 1000);
+        } else if (JSON.stringify(userSequence) === JSON.stringify(processed)) {
         console.log('Well done you got it right!');
         correct();
     } else {
-        console.log('You fucked it.');
+        gameOver('Try again twat');
+        userSequence = [];
+        sequence = processed;
+        processed = [];
+        setTimeout(function() {
+            startGame();
+        }, 2000);
     }
 }
 
+function gameOver(message) {
+    resultMsg.innerHTML = message;
+    result.showModal();
+        setTimeout(function() {
+            result.close();
+        }, 2000)
+}
+
 function correct() {
-    console.log('Sequence: ' + sequence + 'Processed: ' + processed + 
-    'UserSequence: ' + userSequence);
     processed.forEach(function(element) {
         sequence.push(element);
     })
@@ -145,9 +165,6 @@ button[0].addEventListener('click', function() {
 })
 
 /**
- * If userSequence == processed.length then disable buttons
  * Fix double colour issue
- * Redo button colors
- * Popup when wrong button press
- * Rearrange buttons
+ * Mobile responsive result modal
 */
