@@ -39,7 +39,6 @@ function processTurn() {
 }
 
 function userTurn(e) {
-    console.log(e.target.dataset.value);
     userSequence.push(parseInt(e.target.dataset.value));
     isTurnOver();
 }
@@ -47,7 +46,7 @@ function userTurn(e) {
 function startGame() {
     opBtns[0].removeEventListener('click', startGame); // Doesnt work
     disableGameBtns();
-    intervalId = setInterval(processTurn, 2000);
+    intervalId = setInterval(processTurn, 1500);
     return;
 }
 
@@ -80,6 +79,13 @@ function correct() {
     userSequence = [];
     newEntry();
     intervalId = setInterval(processTurn, 2000);
+}
+
+function resetGame() {
+    sequence = [];
+    processed = [];
+    userSequence = [];
+    updateCount();
 }
 
 // STEP COUNTER
@@ -122,6 +128,7 @@ function disableGameBtns() {
     });
 }
 
+opBtns[1].addEventListener('click', resetGame);
 opBtns[2].addEventListener('click', enableStrict);
 
 // Modal Functionality
@@ -142,4 +149,5 @@ button[0].addEventListener('click', function() {
  * Fix double colour issue
  * Redo button colors
  * Popup when wrong button press
+ * Rearrange buttons
 */
