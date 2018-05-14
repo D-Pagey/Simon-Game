@@ -6,6 +6,7 @@ const opBtns = document.querySelectorAll('.button');
 const display = document.querySelector('.display');
 const result = document.querySelector('.result-modal');
 const resultMsg = document.querySelector('.result-message');
+const sounds = document.querySelectorAll('audio');
 
 let strict = false;
 let sequence = [];
@@ -33,6 +34,7 @@ function processTurn() {
     } else {
         let element = gameBtns[sequence[0]];
         element.className = element.id + '-active btn';
+        sounds[element.dataset.value].play();
         setTimeout(function() {
             element.className = element.id + ' btn';
         }, 2000);
@@ -42,6 +44,7 @@ function processTurn() {
 
 function userTurn(e) {
     userSequence.push(parseInt(e.target.dataset.value));
+    sounds[e.target.dataset.value].play();
     isTurnOver();
 }
 
