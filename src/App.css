@@ -1,0 +1,14 @@
+.App {
+    display: flex;
+    flex-direction: column;
+}
+
+.title {
+    background-color: white;
+    border: 1px solid black;
+    border-radius: 12px;
+    margin: 10px auto;
+    padding: 7px 10px;
+    text-align: center;
+    width: 14.75rem;
+}
