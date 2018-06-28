@@ -1,7 +1,10 @@
 .game-container {
     align-content: center;
+    background-color: #292929;
+    border-radius: 50%;
     display: flex;
     flex-wrap: wrap;
+    height: 280px;
     justify-content: center;
     margin-top: 12px;
     width: 280px;
@@ -10,7 +13,7 @@
 .btn {
     border: 0;
     height: 8rem;
-    margin: 1.5px;
+    margin: 2px;
     width: 8rem;
 }
 

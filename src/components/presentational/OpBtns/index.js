@@ -4,7 +4,7 @@ import './index.css';
 
 export default function OpBtns() {
     return (
-        <div>
+        <div className="">
             <button>Start</button>
             <button>Reset</button>
             <button>Strict</button>

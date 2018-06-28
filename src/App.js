@@ -14,7 +14,7 @@ class App extends Component {
         <Modal />
         <h1 className="title">Simon Game</h1>
         <GameBtns />
-        <p>0</p>
+        <p className="display">0</p>
         <OpBtns />
         <Result />
         <Footer />
