@@ -5,7 +5,7 @@ import './index.css';
 export default function Result() {
     return (
         <div>
-            <p>Result Modal</p>
+            <p className='result-message'></p>
         </div>
     )
 }

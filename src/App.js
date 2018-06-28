@@ -8,6 +8,19 @@ import Result from './components/presentational/Result';
 import Footer from './components/presentational/Footer';
 
 class App extends Component {
+  state = {
+    strict: false,
+  }
+
+  toggleStrict = () => {
+    this.setState(prevState => {
+      return {
+        strict: !prevState.strict
+      }
+    });
+  }
+
+
   render() {
     return (
       <main className="App">
@@ -15,7 +28,9 @@ class App extends Component {
         <h1 className="title">Simon Game</h1>
         <GameBtns />
         <p className="display">0</p>
-        <OpBtns />
+        <OpBtns 
+        toggleStrict={this.toggleStrict} 
+        isStrict={this.state.strict} />
         <Result />
         <Footer />
       </main>
