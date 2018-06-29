@@ -9,7 +9,10 @@ import Footer from './components/presentational/Footer';
 
 class App extends Component {
   state = {
+    count: 0,
+    gameSequence: [],
     strict: false,
+    userSequence: [],
   }
 
   toggleStrict = () => {
@@ -20,6 +23,17 @@ class App extends Component {
     });
   }
 
+  randomButton = () => {
+    return Math.floor(Math.random() * Math.floor(4));
+  }
+
+  newTurn = () => {
+    const newTurn = [...this.state.gameSequence, this.randomButton()] 
+    this.setState({
+      gameSequence: newTurn,
+    })
+  }
+
 
   render() {
     return (
@@ -27,10 +41,11 @@ class App extends Component {
         <Modal />
         <h1 className="title">Simon Game</h1>
         <GameBtns />
-        <p className="display">0</p>
+        <p className="display">{this.state.count}</p>
         <OpBtns 
         toggleStrict={this.toggleStrict} 
-        isStrict={this.state.strict} />
+        isStrict={this.state.strict} 
+        newTurn = {this.newTurn} />
         <Result />
         <Footer />
       </main>
