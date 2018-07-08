@@ -19,6 +19,7 @@
   margin: 0 auto;
   max-width: 300px;
   overflow: scroll;
+  overflow-x: hidden;
   padding: .5em;
   top: 5%;
   width: 80%; }

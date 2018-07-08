@@ -11,6 +11,8 @@ class App extends Component {
   state = {
     count: 0,
     gameSequence: [],
+    isActive: false,
+    lastEntry: 0,
     strict: false,
     userSequence: [],
   }
@@ -28,10 +30,16 @@ class App extends Component {
   }
 
   newTurn = () => {
-    const newTurn = [...this.state.gameSequence, this.randomButton()] 
+    const { count } = this.state;
+    const newTurn = [...this.state.gameSequence, this.randomButton()]
+
     this.setState({
-      count: this.state.count + 1,
-      gameSequence: newTurn
+      count: count + 1,
+      gameSequence: newTurn,
+      isActive: true,
+      lastEntry: newTurn[newTurn.length - 1],
+    }, () => {
+      setTimeout(() => this.setState({isActive: false}), 1000);
     })
   }
 
@@ -42,19 +50,19 @@ class App extends Component {
     
     switch (colour) {
       case 'yellow':
-        console.log(0);
+        e.target.firstChild.play();
         newUserTurn.push(0);
         break;
       case 'red':
-        console.log(1);
+        e.target.firstChild.play();
         newUserTurn.push(1);
         break;
       case 'blue':
-        console.log(2);
+        e.target.firstChild.play();
         newUserTurn.push(2);
         break;
       case 'green':
-        console.log(3);
+        e.target.firstChild.play();
         newUserTurn.push(3);
         break;
       default:
@@ -68,20 +76,39 @@ class App extends Component {
     this.newTurn();
   }
 
+  resetGame = () => {
+    this.setState({
+      count: 0,
+      gameSequence: [],
+      isActive: false,
+      lastEntry: 0,
+      strict: false,
+      userSequence: [],
+    })
+  }
+
   render() {
 
-    const { count, strict } = this.state;
+    const { count, strict, isActive, lastEntry } = this.state;
 
     return (
       <main className="App">
         <Modal />
         <h1 className="title">Simon Game</h1>
-        <GameBtns userTurn={this.userTurn}/>
+
+        <GameBtns 
+        userTurn={this.userTurn}
+        active={isActive}
+        lastEntry={lastEntry} />
+
         <p className="display">{count}</p>
+
         <OpBtns 
         toggleStrict={this.toggleStrict} 
         isStrict={strict} 
-        start = {this.startGame} />
+        start={this.startGame}
+        reset={this.resetGame} />
+        
         <Result />
         <Footer />
       </main>
