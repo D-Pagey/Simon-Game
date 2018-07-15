@@ -15,6 +15,7 @@ class App extends Component {
     lastEntry: 0,
     strict: false,
     userSequence: [],
+    turnOver: false,
   }
 
   toggleStrict = () => {
@@ -29,6 +30,18 @@ class App extends Component {
     return Math.floor(Math.random() * Math.floor(4));
   }
 
+  isTurnOver = () => {
+    const { gameSequence, userSequence } = this.state;
+
+    if (gameSequence.length === userSequence.length) {
+      console.log('Same length, stop the buttons');
+      this.setState({ turnOver: true })
+      return;
+    } else {
+      console.log('Keep going');
+    }
+  }
+
   newTurn = () => {
     const { count } = this.state;
     const newTurn = [...this.state.gameSequence, this.randomButton()]
@@ -38,6 +51,7 @@ class App extends Component {
       gameSequence: newTurn,
       isActive: true,
       lastEntry: newTurn[newTurn.length - 1],
+      turnOver: false
     }, () => {
       setTimeout(() => this.setState({isActive: false}), 1000);
     })
@@ -69,7 +83,7 @@ class App extends Component {
         console.log('Something went wrong.' + colour)
     }
 
-    this.setState({ userSequence: newUserTurn })
+    this.setState({ userSequence: newUserTurn }, () => this.isTurnOver());
   }
 
   startGame = () => {
@@ -89,7 +103,7 @@ class App extends Component {
 
   render() {
 
-    const { count, strict, isActive, lastEntry } = this.state;
+    const { count, strict, isActive, lastEntry, turnOver } = this.state;
 
     return (
       <main className="App">
@@ -99,7 +113,8 @@ class App extends Component {
         <GameBtns 
         userTurn={this.userTurn}
         active={isActive}
-        lastEntry={lastEntry} />
+        lastEntry={lastEntry}
+        turnOver={turnOver} />
 
         <p className="display">{count}</p>
 
@@ -108,7 +123,7 @@ class App extends Component {
         isStrict={strict} 
         start={this.startGame}
         reset={this.resetGame} />
-        
+
         <Result />
         <Footer />
       </main>
