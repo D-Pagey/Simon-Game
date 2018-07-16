@@ -30,16 +30,13 @@ class App extends Component {
     return Math.floor(Math.random() * Math.floor(4));
   }
 
-  isTurnOver = () => {
-    const { gameSequence, userSequence } = this.state;
-
-    if (gameSequence.length === userSequence.length) {
-      console.log('Same length, stop the buttons');
-      this.setState({ turnOver: true })
-      return;
-    } else {
-      console.log('Keep going');
-    }
+  lightUp = () => {
+    this.setState({
+      isActive: true,
+      turnOver: false
+    }, () => {
+      setTimeout(() => this.setState({isActive: false}), 1000);
+    })
   }
 
   newTurn = () => {
@@ -84,6 +81,31 @@ class App extends Component {
     }
 
     this.setState({ userSequence: newUserTurn }, () => this.isTurnOver());
+  }
+
+  isTurnOver = () => {
+    const { gameSequence, userSequence } = this.state;
+
+    if (gameSequence.length === userSequence.length) {
+      console.log('Same length, stop the buttons');
+      this.setState({ turnOver: true })
+      this.assess();
+      return;
+    } else {
+      console.log('Keep going');
+    }
+  }
+
+  assess = () => {
+    const { gameSequence, userSequence } = this.state;
+
+    if (JSON.stringify(gameSequence) === JSON.stringify(userSequence)) {
+      console.log("It's a match! Next level.");
+      this.newTurn();
+    } else {
+      console.log("Wrong.");
+      this.lightUp();
+    }
   }
 
   startGame = () => {
